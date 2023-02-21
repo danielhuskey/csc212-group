@@ -1,6 +1,6 @@
 # csc212-group project
-
-
+comp with
+g++ main.cpp gradebook.cpp -o testMain
 
 # Pseudocode
 Var name meanings 
