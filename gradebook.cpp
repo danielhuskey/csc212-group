@@ -3,14 +3,52 @@
 #include <string>
 #include <vector>
 #include <iostream>
-gradeBook::gradeBook(std::vector<std::vector<double>> inputGradeVector,std::vector<std::string> inputNameVector){
+//test constructor used when giving a premade vector outside of the class not normally used but kepts just incase needed in the future 
+gradeBook::gradeBook(std::vector<std::vector<double>> inputGradeVector,std::vector<std::string> inputNameVector, char * file_name){
     gradeVector=inputGradeVector;
     nameVector=inputNameVector;
-}
-gradeBook::gradeBook(std::string fName){
-
+    fName = file_name;
 
 }
+// constructor normally used takes in a file and extrapualtes that into a 2D vector of doubles broken right now use the test constructor for now 
+gradeBook::gradeBook(char * file_name){
+    std::fstream openFile;
+    openFile.open(file_name);
+    std::string temp;
+    std::string toint;
+    std::vector<double> test;
+    int indl;
+    
+    while (std::getline(openFile, temp)){
+       
+        
+        for(int x =indl;x<temp.size();x++){
+            if(temp[x]==' '){
+                test.push_back(stoi(toint));
+                
+                //toint.clear();
+                //test.clear();
+            }else{
+                    toint.push_back(temp[x]);
+
+            }
+        }
+      
+        
+
+
+        //gradeVector.push_back(test);
+        //test.clear();
+
+       
+            //gradeVector[indl].push_back(stoi(temp));
+            
+    
+
+}
+}
+
+//prints out all of the grades that are in the "grade vector" seperating the prints by categoryName ie ("Labs","Assignment","Projects","Exams")
 void gradeBook::printGrades(){
     for(int x =0;x<gradeVector.size();x++){
         //displays the category name followed by all of the grades in that category
@@ -24,7 +62,7 @@ void gradeBook::printGrades(){
 }// prints in the terminal all of the grades
 
 
-
+//prints out the grades in the categoryName ie ("Labs","Assignment","Projects","Exams") 
 void gradeBook::printGrades(std::string categoryName){
     int found;
     //looks for the category name in the known category vector to match to be able to only display that category
@@ -34,8 +72,9 @@ void gradeBook::printGrades(std::string categoryName){
         }
     }
 
-    //couts all of the grades in the catigory found
-    std::cout<<"Your "<<nameVector[found]<<" grades are: "<<std::endl;
+    //couts all of the grades in the catigory found    
+    std::cout<<"Your "<<nameVector[found]<<" total is "<<" grades are: "<<std::endl;
+                                    //               findAvg(<nameVector[found])   
      for(int y =0; y<gradeVector[found].size();y++){
             std::cout<<nameVector[found]<<" "<<y+1<<": "<<gradeVector[found][y]<<" "<<std::endl;
         }   
@@ -66,9 +105,22 @@ void setGrades(std::string gradeName,int grade){
 
 }
 
-        
-void saveGrades(std::string fName){
 
+//Saves "gradeVector" to "fName"      
+void gradeBook::saveGrades(){
+    std::fstream openFile;
+    //opens the file and clears it before resaving the new information back to the file
+    openFile.open(fName, std::ofstream::out | std::ofstream::trunc);
 
-}//saves the grage Vector the file
+    //goes through the 2d vector and adds it to the file breaking line at the end of each vector to seperate the vector
+    for(int y =0; y<gradeVector.size();y++){
+        for(int x =0; x<gradeVector[y].size();x++){
+            openFile <<gradeVector[y][x]<<" ";
+        }
+        openFile <<"\n";
+    }
+
+    openFile.close();
+    
+}
 
