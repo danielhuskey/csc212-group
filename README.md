@@ -1,5 +1,5 @@
 # csc212-group project
-#Summary:
+Summary:
 	
 
  
@@ -29,7 +29,7 @@
 
 		
 
-#Planning:	
+Planning:	
 
 	Pseudocode
 		Var name meanings 
@@ -70,18 +70,19 @@
 	Flow Chart IMG
 
 
-#Compilation Instructions:
+Compilation Instructions:
 
 	use the following command for complation of the project "g++ main.cpp gradebook.cpp -o main"
 
 
-#Runtime Instructions:
+Runtime Instructions:
+
 	durning runtime use "./main {fileName}" 
 	the program will print out "use for help to close and save enter close"
 	after the program will loop until command == false 
 
 
-#Samples:
+Samples:
 
 
 
