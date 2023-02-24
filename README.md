@@ -70,9 +70,9 @@ Planning:
 	Flow Chart IMG
 
 
-Compilation Instructions:
+Compilation Command:
 
-	use the following command for complation of the project "g++ main.cpp gradebook.cpp -o main"
+	g++ main.cpp gradebook.cpp -o main
 
 
 Runtime Instructions:
