@@ -73,7 +73,7 @@ void gradeBook::printGrades(std::string categoryName){
     }
 
     //couts all of the grades in the catigory found    
-    std::cout<<"Your "<<nameVector[found]<<" total is "<<" grades are: "<<std::endl;
+    std::cout<<"Your "<<nameVector[found]<<" total is "<<this->findAvg(nameVector[found])<<" / "<<WORTHS[found]<<std::endl;
                                     //                ^ findAvg(<nameVector[found])   
      for(int y =0; y<gradeVector[found].size();y++){
             std::cout<<nameVector[found]<<" "<<y<<": "<<gradeVector[found][y]<<" "<<std::endl;
@@ -81,16 +81,86 @@ void gradeBook::printGrades(std::string categoryName){
 
 
 }
+double gradeBook::findWorth(std::string typeName){
+    int fristVal;
+        //finding the first val in the 2D vector by name
+        if(typeName =="Labs"){
+            fristVal = 0;
+        }else if(typeName =="Assignments"){
+            fristVal = 1;
+        }else if(typeName =="Projects"){
+            fristVal = 2;
+        }else if (typeName == "Exams"){
+            fristVal = 3;
+        }else{
+            std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+            fristVal =-1;
+        }
+        if(fristVal!=-1){
+            
+            return WORTHS[fristVal];
+        }
 
+}
+
+void gradeBook::addGrade(std::string typeName,double grade){
+    int fristVal;
+    if(typeName =="Labs"){
+            fristVal = 0;
+        }else if(typeName =="Assignments"){
+            fristVal = 1;
+        }else if(typeName =="Projects"){
+            fristVal = 2;
+        }else if (typeName == "Exams"){
+            fristVal = 3;
+        }else{
+            std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+            fristVal =-1;
+        }
+        if(fristVal!=-1){
+            
+            gradeVector[fristVal].push_back(grade);
+        }
+
+}
 
 double gradeBook::findAvg(){
-///Your Avrage for this class is 200/260
+    double total;
+    for(int i =0;i<gradeVector.size();i++){
+        for (int x=0;x<gradeVector[i].size();x++){
+            total+=gradeVector[i][x];
+        }
+    }
+    return total;
+
 
 } 
 //finds the avg of all grades 
 
 
 double gradeBook::findAvg(std::string typeName){
+    int fristVal;
+    //finding the first val in the 2D vector by name
+    if(typeName =="Labs"){
+        fristVal = 0;
+    }else if(typeName =="Assignments"){
+        fristVal = 1;
+    }else if(typeName =="Projects"){
+        fristVal = 2;
+    }else if (typeName == "Exams"){
+        fristVal = 3;
+    }else{
+        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+        fristVal =-1;
+    }
+    if(fristVal!=-1){
+        double total;
+        for (int x=0;x<gradeVector[fristVal].size();x++){
+            total+=gradeVector[fristVal][x];
+        }
+          return total;
+    }
+    
 ///Your Avg for labs is a 20/20
 
 }
