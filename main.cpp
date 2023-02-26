@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
-int handleCommands(std::string args, gradeBook grades){
+int handleCommands(std::string args, gradeBook * grades){
     if(args=="close"){
-        grades.saveGrades();
+        grades->saveGrades();
         return -1;
     
     //HELP commands  
@@ -49,33 +49,47 @@ int handleCommands(std::string args, gradeBook grades){
 
         //finding the command in the string and breaking once the frist space seperating the values is found
         //since each command takes differnt args the rest will be seperatied out in those commands. 
-        for(int x =0;x<args.size();x++){
-            if(args[x] ==' '){
-                findLoc =x;
-                break;
-            }else{
-                splitArgs.push_back(args[x]);
-            }
-        }
+   
+
+
+
         //PLACE HOLDERS UNTIL METHODS ARE IMPLIMENDED
-        if(splitArgs=="getGrade"){
-            std::cout<<"getGrades"<<std::endl;
-        }else if(splitArgs=="getCategory"){
-            std::cout<<"getCategory"<<std::endl;
-        }else if(splitArgs=="getCourse"){
+        if(args=="getGrade"){
+                std::string gradeName;
+                int loc;
+                std::cin>> gradeName >>loc;
+                std::cout<<grades->getGrades(gradeName,loc)<<std::endl;
+
+        }else if(args=="getCategory"){
+                std::string gradeName;
+                std::cin>> gradeName;
+                grades->printGrades(gradeName);
+        }else if(args=="getCourse"){
             std::cout<<"getCourse"<<std::endl;
-        }else if(splitArgs=="addGrade"){
+        }else if(args=="addGrade"){
             std::cout<<"addGrade"<<std::endl;
-        }else if(splitArgs=="removeGrade"){
-            std::cout<<"removeGrade"<<std::endl;
-        }else if(splitArgs=="changeGrade"){
-            std::cout<<"changeGrade"<<std::endl;
+        }else if(args=="changeGrade"){
+                std::string gradeName;
+                int loc;
+                int grade;
+                std::cin>> gradeName >>loc>>grade;
+                grades->setGrades(gradeName,loc,grade);
+                grades->printGrades();
+                
+        }else if(args=="print"){
+                grades->printGrades();
+                
         }else {
             std::cout<<"ERROR:: Invalid Command"<<std::endl;
-            std::cout<<"For help use -h or teshelp "<<std::endl;
+            std::cout<<"For help use the command help "<<std::endl;
         }
         
     }
+     
+    
+
+    
+
 
     return 1;
 
@@ -86,20 +100,24 @@ int main(int argc, char* argv[]){
                                                 //Labs                          Assignment    Proj     exams
     std::vector<std::vector<double>> tempVector ={{20.5,20,20,20,20,20,20,20,20,20},{50,50,50,50},{150,350},{100}};
     std::vector<std::string> nameVector={"Labs","Assignments","Projects","Exams"};
-    gradeBook test(tempVector,nameVector,file_name);
-    
+    gradeBook * test;
+    test = new gradeBook(tempVector,nameVector,file_name);
+
     //gradeBook test2(file_name);
     int run = handleCommands("help",test);
-    std::cout<<"For help use -h or help "<<std::endl;
+    std::cout<<"For help use help, print to print out current grades use to exit  to save and close the program"<<std::endl;
     while(run >0){
         std::cout<<"Enter Command: ";
         std::string inputCommand;
         
-        std::getline(std::cin, inputCommand);
+
+        //std:getline(std::cin, inputCommand);:
+        std::cin>>inputCommand;
         
-        run =handleCommands(inputCommand,test);
+         run =handleCommands(inputCommand,test);
+        
     }
-    test.printGrades();
-    test.saveGrades();
+    
+    test->saveGrades();
     //test.printGrades("Labs");
 }
