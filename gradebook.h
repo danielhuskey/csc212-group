@@ -23,13 +23,16 @@ class gradeBook{
         //saving the vector of grades back to the file
         void saveGrades();//saves the grage Vector the file
 
-
-        //not done if worked on feel free to change what it takes as input if it makes it easy
+        //gets the grades at the given location
+        double getGrades(std::string gradeName,int loc);
+        //set the grade at the given location to new grade
+        void setGrades(std::string gradeName,int loc,double grade);
+    
+        //not done
         double findAvg(); //finds the avg of all grades 
         double findAvg(std::string typeName);// find avg of the type name
 
-        double getGrades(std::string gradeName);
-        void setGrades(std::string gradeName,int grade);
+        
 
         
 
