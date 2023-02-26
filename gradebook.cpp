@@ -54,7 +54,7 @@ void gradeBook::printGrades(){
         //displays the category name followed by all of the grades in that category
         std::cout<<nameVector[x]<<": ";
             for(int y =0; y<gradeVector[x].size();y++){
-            std::cout<<gradeVector[x][y]<<" ";
+            std::cout<<nameVector[x]<<" "<<y<<": "<<gradeVector[x][y]<<" "<<std::endl;
         }   
         std::cout<<std::endl;
     }
@@ -74,9 +74,9 @@ void gradeBook::printGrades(std::string categoryName){
 
     //couts all of the grades in the catigory found    
     std::cout<<"Your "<<nameVector[found]<<" total is "<<" grades are: "<<std::endl;
-                                    //               findAvg(<nameVector[found])   
+                                    //                ^ findAvg(<nameVector[found])   
      for(int y =0; y<gradeVector[found].size();y++){
-            std::cout<<nameVector[found]<<" "<<y+1<<": "<<gradeVector[found][y]<<" "<<std::endl;
+            std::cout<<nameVector[found]<<" "<<y<<": "<<gradeVector[found][y]<<" "<<std::endl;
         }   
 
 
@@ -86,25 +86,56 @@ void gradeBook::printGrades(std::string categoryName){
 double gradeBook::findAvg(){
 ///Your Avrage for this class is 200/260
 
-} //finds the avg of all grades 
+} 
+//finds the avg of all grades 
 
 
 double gradeBook::findAvg(std::string typeName){
 ///Your Avg for labs is a 20/20
 
-}// find avg of the type name
-
-
-
-double gradeBook::getGrades(std::string gradeName){
-//gets the grade for given name for a grade
-
 }
-//change to (int x, int y, int grade) will be easyier
+// find avg of the type name
 
-void setGrades(std::string gradeName,int grade){
-//sets grade at a given name
 
+
+double gradeBook::getGrades(std::string gradeName,int loc){
+//gets the grade for given name for a grade
+    int fristVal;
+    //finding the first val in the 2D vector by name
+    if(gradeName =="Labs"){
+        fristVal = 0;
+    }else if(gradeName =="Assignments"){
+        fristVal = 1;
+    }else if(gradeName =="Projects"){
+        fristVal = 2;
+    }else if (gradeName == "Exams"){
+        fristVal = 3;
+    }else{
+        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+        fristVal =-1;
+    }
+    if(fristVal!=-1){
+        return gradeVector[fristVal][loc];
+    }
+}
+void gradeBook::setGrades(std::string gradeName,int loc,double grade){
+    int fristVal;
+    //finding the first val in the 2D vector by name
+    if(gradeName =="Labs"){
+        fristVal = 0;
+    }else if(gradeName =="Assignments"){
+        fristVal = 1;
+    }else if(gradeName =="Projects"){
+        fristVal = 2;
+    }else if (gradeName == "Exams"){
+        fristVal = 3;
+    }else{
+        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+        fristVal =-1;
+    }
+    if(fristVal!=-1){
+        gradeVector[fristVal][loc]=grade;
+    }
 }
 
 
