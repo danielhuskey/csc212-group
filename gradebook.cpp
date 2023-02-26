@@ -72,7 +72,7 @@ void gradeBook::printGrades(std::string categoryName){
         }
     }
 
-    //couts all of the grades in the catigory found    
+    //couts all of the grades in the category found    
     std::cout<<"Your "<<nameVector[found]<<" total is "<<this->findAvg(nameVector[found])<<" / "<<WORTHS[found]<<std::endl;
                                     //                ^ findAvg(<nameVector[found])   
      for(int y =0; y<gradeVector[found].size();y++){
@@ -150,7 +150,7 @@ double gradeBook::findAvg(std::string typeName){
     }else if (typeName == "Exams"){
         fristVal = 3;
     }else{
-        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+        std::cout<<"Grade Type Please use one of the following Labs, Assignments, Projects, Exams"<<std::endl;
         fristVal =-1;
     }
     if(fristVal!=-1){
