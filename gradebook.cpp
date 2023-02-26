@@ -100,6 +100,8 @@ double gradeBook::getGrades(std::string gradeName){
 //gets the grade for given name for a grade
 
 }
+//change to (int x, int y, int grade) will be easyier
+
 void setGrades(std::string gradeName,int grade){
 //sets grade at a given name
 
