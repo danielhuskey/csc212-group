@@ -44,16 +44,7 @@ int handleCommands(std::string args, gradeBook * grades){
           
     //END HELP commands
     }else{
-        std::string splitArgs;
-        int findLoc;
-
-        //finding the command in the string and breaking once the frist space seperating the values is found
-        //since each command takes differnt args the rest will be seperatied out in those commands. 
-   
-
-
-
-        //PLACE HOLDERS UNTIL METHODS ARE IMPLIMENDED
+        
         if(args=="getGrade"){
                 std::string gradeName;
                 int loc;
@@ -65,13 +56,40 @@ int handleCommands(std::string args, gradeBook * grades){
                 std::cin>> gradeName;
                 grades->printGrades(gradeName);
         }else if(args=="getCourse"){
-            std::cout<<"getCourse"<<std::endl;
+                std::string type;
+                std::cin>> type;
+                if(type =="0"){
+                    std::cout<<"The Current Course Grade is "<<grades->findAvg()<<" /1000"<<std::endl;
+                }else if(type =="all"){
+                    std::cout<<"The Current Course Grade is "<<grades->findAvg()<<" /1000"<<std::endl;
+                    std::cout<<"Broken Down to:"<<std::endl;
+                    grades->printGrades("Labs");
+                    grades->printGrades("Assignments");
+                    grades->printGrades("Projects");
+                    grades->printGrades("Exams");
+                }else if(type =="Category"){
+                    std::cout<<"The Current Course Grade is "<<grades->findAvg()<<" /1000"<<std::endl;
+                    std::cout<<"Broken Down to:"<<std::endl;
+                    std::cout<<"Labs "<<grades->findAvg("Labs")<<" / "<<grades->findWorth("Labs")<<std::endl;
+                    std::cout<<"Assignments"<<grades->findAvg("Assignments")<<" / "<<grades->findWorth("Assignments")<<std::endl;
+                    std::cout<<"Projects"<<grades->findAvg("Projects")<<" / "<<grades->findWorth("Projects")<<std::endl;
+                    std::cout<<"Exams"<<grades->findAvg("Exams")<<" / "<<grades->findWorth("Exams")<<std::endl;
+                    
+                }else{
+                    std::cout<<"ERROR::Invalid Argument please enter getCourse followed by one of the following 0, all or category."<<std::endl;
+                }
+
+            
         }else if(args=="addGrade"){
-            std::cout<<"addGrade"<<std::endl;
+                std::string gradeName;
+                
+                double grade;
+                std::cin>> gradeName >>grade;
+                grades->addGrade(gradeName,grade);
         }else if(args=="changeGrade"){
                 std::string gradeName;
                 int loc;
-                int grade;
+                double grade;
                 std::cin>> gradeName >>loc>>grade;
                 grades->setGrades(gradeName,loc,grade);
                 grades->printGrades();
@@ -116,8 +134,5 @@ int main(int argc, char* argv[]){
         
          run =handleCommands(inputCommand,test);
         
-    }
-    
-    test->saveGrades();
-    //test.printGrades("Labs");
+    }    
 }
