@@ -33,7 +33,7 @@ Planning:
 
 	Pseudocode
 		Var name meanings 
-			gradeType could be {Labs, *Quizzes*, Assignments, Exams, Projects ext}
+			gradeType could be {Labs, Assignments, Exams, Projects ext}
 			gradeName the Name of the item in grade type so in Exams you could have “Final exam” as gradeName
 			fileName name of the file opened/ made
 			openVector a vector that holds everything in the file all this information will then be saved back to the file at the end
@@ -43,14 +43,35 @@ Planning:
 			defined above -help, -new, -getGrade, -changeGrade,  -addGrade, -removeGrade, -getName, -close
 			
 	Main{
-		Store initial command line args check command args to see if one is help
-
-	If (fileName)
-		openFile
-		Store the elements of that file
-	Else print invalid fileName
-	
+	get fileName
+	gradebook gb(filename)	
 	While input !=(close)
+		if input == help
+			print help
+		else if input == getGrade
+			gb.getGrades(type, loc);
+			
+		else if input = getCategory
+			gb.printGrades(category)
+			print(gb.findAvg(category))
+		else if input = getCourse + args
+			if args = "all"
+				gb.printGrades()
+				gb.findAvg()
+			else if ags = category
+				gb.findAvg(Labs)
+				gb.findAvg(Assignments)
+				gb.findAvg(Projects)
+				gb.findAvg(Exams)
+				gb.findAvg();
+			else
+				gb.findAvg();
+		else if input = changeGrade
+			gb.changeGrades(cat,loc,grade)
+		else 
+			print "ERROR:: Invalid Command"
+			print "For help use help"
+		
 		Handle Command Line args
 		Output based on the command line args 
 	End while 
