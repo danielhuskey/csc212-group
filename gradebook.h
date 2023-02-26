@@ -27,7 +27,7 @@ class gradeBook{
         double findAvg(); //finds the avg of all grades 
         double findAvg(std::string typeName);// find avg of the type name
 
-        //Finds the max val in each catigory
+        //Finds the max val in each category
         double findWorth(std::string typeName);
 
         //returns the grade at the given location
