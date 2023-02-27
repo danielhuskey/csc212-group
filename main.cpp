@@ -3,7 +3,10 @@
 #include <string>
 #include <vector>
 #include <iostream>
+
+//function will handle all the commands for the program
 int handleCommands(std::string args, gradeBook * grades){
+    //end program
     if(args=="close"){
         grades->saveGrades();
         return -1;
