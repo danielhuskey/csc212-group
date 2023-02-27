@@ -55,6 +55,7 @@ void gradeBook::printGrades(){
 
 
 //prints out the grades in the categoryName ie ("Labs","Assignment","Projects","Exams") 
+
 void gradeBook::printGrades(std::string categoryName){
     int found;
     //looks for the category name in the known category vector to match to be able to only display that category
@@ -95,6 +96,7 @@ double gradeBook::findWorth(std::string typeName){
     return -1;
 }
 
+// addGrade takes 2 paramets and of the grade assingment and the grade. It then pushes back the user submitted number
 void gradeBook::addGrade(std::string typeName,double grade){
     int fristVal;
     if(typeName =="Labs"){
@@ -207,7 +209,7 @@ void gradeBook::saveGrades(){
     std::fstream openFile;
     //opens the file and clears it before resaving the new information back to the file
     openFile.open(fName, std::ofstream::out | std::ofstream::trunc);
-
+    
     //goes through the 2d vector and adds it to the file breaking line at the end of each vector to seperate the vector
     for(int y =0; y<gradeVector.size();y++){
         for(int x =0; x<gradeVector[y].size();x++){
