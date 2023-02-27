@@ -107,7 +107,7 @@ Samples:
 Example Of Giving an invalid Command and getting help to finally getGrade Labs 2 grade
 ![image](https://user-images.githubusercontent.com/79720949/221473081-832d9aec-7ee0-4375-8d76-bf29460ddf96.png)
 
-Example Of changing the grade of Assigment 1 to 45
+Example Of changing the grade of Assigment 1 to 45 and then calling close to save the informantion.
 ![image](https://user-images.githubusercontent.com/79720949/221474473-84953618-97b4-41e1-b647-c74424e43a5b.png)
 Changing the the file from 
 ![image](https://user-images.githubusercontent.com/79720949/221474542-9d9bf053-63df-43ed-b33b-565194cd6dae.png)
@@ -122,4 +122,12 @@ Example for getting the total grades in a catigory
 Example For getting a singal grade
 ![image](https://user-images.githubusercontent.com/79720949/221475723-e398d369-eb65-4fe9-aeaf-8bc7220d05b0.png)
 
-	
+Example For entering Invalid getCourse Followed by getting just the course grade
+![image](https://user-images.githubusercontent.com/79720949/221477520-2dfafc0b-d261-4963-b0ae-9a0e86d0821e.png)
+Example Getting all Grades and course grade
+![image](https://user-images.githubusercontent.com/79720949/221477730-07cb8cf1-5c64-4e21-9ee5-72e0e65ec4d2.png)
+Example Getting only Catigories and course grade
+![image](https://user-images.githubusercontent.com/79720949/221478205-9594cd7e-36f2-4dc4-93a1-6ebd8f540a6c.png)
+Example Printing all grades
+![image](https://user-images.githubusercontent.com/79720949/221478287-720f04ea-2212-4511-868a-f7ee7ee67344.png)
+
