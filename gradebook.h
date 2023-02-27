@@ -17,17 +17,17 @@ class gradeBook{
         //print grades
         void printGrades();// prints in the terminal all of the grades
 
-        //ONLY CODE LEFT TO DO
         void printGrades(std::string typeName);// prints in the terminal the gradestpye given
 
         //saving the vector of grades back to the file
         void saveGrades();
 
+
         //findAvg
         double findAvg(); //finds the avg of all grades 
         double findAvg(std::string typeName);// find avg of the type name
 
-        //Finds the max val in each category
+        //Finds the max val in each catigory
         double findWorth(std::string typeName);
 
         //returns the grade at the given location
@@ -37,5 +37,5 @@ class gradeBook{
         void setGrades(std::string gradeName,int loc,double grade);
 
         void addGrade(std::string gradeName,double grade);
-  
+      
 };
