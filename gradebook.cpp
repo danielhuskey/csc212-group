@@ -17,42 +17,34 @@ gradeBook::gradeBook(char * file_name){
     std::string temp;
     std::string toint;
     std::vector<double> test;
-    int indl;
-    
+
+    int index =1;
     while (std::getline(openFile, temp)){
        
         
-        for(int x =indl;x<temp.size();x++){
+        for(int x =0;x<temp.size();x++){
             if(temp[x]==' '){
-                test.push_back(stoi(toint));
+                test.push_back(stod(toint));
+                toint.clear();
                 
-                //toint.clear();
-                //test.clear();
             }else{
                     toint.push_back(temp[x]);
 
             }
         }
-      
-        
-
-
-        //gradeVector.push_back(test);
-        //test.clear();
-
-       
-            //gradeVector[indl].push_back(stoi(temp));
-            
-    
+        gradeVector.push_back(test);
+        test.clear();
+        index++;    
 
 }
+openFile.close();
 }
 
 //prints out all of the grades that are in the "grade vector" seperating the prints by categoryName ie ("Labs","Assignment","Projects","Exams")
 void gradeBook::printGrades(){
     for(int x =0;x<gradeVector.size();x++){
         //displays the category name followed by all of the grades in that category
-        std::cout<<nameVector[x]<<": ";
+        std::cout<<nameVector[x]<<": "<<std::endl;
             for(int y =0; y<gradeVector[x].size();y++){
             std::cout<<nameVector[x]<<" "<<y<<": "<<gradeVector[x][y]<<" "<<std::endl;
         }   
@@ -72,7 +64,7 @@ void gradeBook::printGrades(std::string categoryName){
         }
     }
 
-    //couts all of the grades in the category found    
+    //couts all of the grades in the catigory found    
     std::cout<<"Your "<<nameVector[found]<<" total is "<<this->findAvg(nameVector[found])<<" / "<<WORTHS[found]<<std::endl;
                                     //                ^ findAvg(<nameVector[found])   
      for(int y =0; y<gradeVector[found].size();y++){
@@ -100,7 +92,7 @@ double gradeBook::findWorth(std::string typeName){
             
             return WORTHS[fristVal];
         }
-
+    return -1;
 }
 
 void gradeBook::addGrade(std::string typeName,double grade){
@@ -122,6 +114,7 @@ void gradeBook::addGrade(std::string typeName,double grade){
             gradeVector[fristVal].push_back(grade);
         }
 
+
 }
 
 double gradeBook::findAvg(){
@@ -140,6 +133,7 @@ double gradeBook::findAvg(){
 
 double gradeBook::findAvg(std::string typeName){
     int fristVal;
+    double total=0;
     //finding the first val in the 2D vector by name
     if(typeName =="Labs"){
         fristVal = 0;
@@ -150,17 +144,16 @@ double gradeBook::findAvg(std::string typeName){
     }else if (typeName == "Exams"){
         fristVal = 3;
     }else{
-        std::cout<<"Grade Type Please use one of the following Labs, Assignments, Projects, Exams"<<std::endl;
+        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
         fristVal =-1;
     }
-    if(fristVal!=-1){
-        double total;
+    if(fristVal!=-1){        
         for (int x=0;x<gradeVector[fristVal].size();x++){
             total+=gradeVector[fristVal][x];
         }
-          return total;
+          
     }
-    
+    return total;
 ///Your Avg for labs is a 20/20
 
 }
@@ -184,9 +177,9 @@ double gradeBook::getGrades(std::string gradeName,int loc){
         std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
         fristVal =-1;
     }
-    if(fristVal!=-1){
-        return gradeVector[fristVal][loc];
-    }
+ 
+    return gradeVector[fristVal][loc];
+    
 }
 void gradeBook::setGrades(std::string gradeName,int loc,double grade){
     int fristVal;
