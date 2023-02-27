@@ -85,7 +85,7 @@ double gradeBook::findWorth(std::string typeName){
         }else if (typeName == "Exams"){
             fristVal = 3;
         }else{
-            std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+            std::cout<<"Grade Type: Please use one of the following Labs, Assignments, Projects, Exams"<<std::endl;
             fristVal =-1;
         }
         if(fristVal!=-1){
@@ -106,7 +106,7 @@ void gradeBook::addGrade(std::string typeName,double grade){
         }else if (typeName == "Exams"){
             fristVal = 3;
         }else{
-            std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+            std::cout<<"Grade Type: Please use one of the following Labs, Assignments, Projects, Exams"<<std::endl;
             fristVal =-1;
         }
         if(fristVal!=-1){
@@ -144,7 +144,7 @@ double gradeBook::findAvg(std::string typeName){
     }else if (typeName == "Exams"){
         fristVal = 3;
     }else{
-        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+        std::cout<<"Grade Type: Please use one of the following Labs, Assignments, Projects, Exams"<<std::endl;
         fristVal =-1;
     }
     if(fristVal!=-1){        
@@ -174,7 +174,7 @@ double gradeBook::getGrades(std::string gradeName,int loc){
     }else if (gradeName == "Exams"){
         fristVal = 3;
     }else{
-        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+        std::cout<<"Grade Type: Please use one of the following Labs, Assignments, Projects, Exams"<<std::endl;
         fristVal =-1;
     }
  
@@ -193,7 +193,7 @@ void gradeBook::setGrades(std::string gradeName,int loc,double grade){
     }else if (gradeName == "Exams"){
         fristVal = 3;
     }else{
-        std::cout<<"Grade Type Please use one of the fallowing Labs, Assignments, Projects, Exams"<<std::endl;
+        std::cout<<"Grade Type: Please use one of the following Labs, Assignments, Projects, Exams"<<std::endl;
         fristVal =-1;
     }
     if(fristVal!=-1){
