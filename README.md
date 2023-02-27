@@ -1,11 +1,10 @@
 # csc212-group project
 Summary:
 	
-
+	This program was made to act as a gradebook for this class with all of the values being based on that of this semseters 212 project worths. In this assigment it reads in a file and then and then adds all of those values read in into a 2D vector where the frist part representes the assigment type such as gradeVect ={{lab grades},{assignments grades},{ project grades},{exam grades}}. The methods for grade book are printGrades() where all of the grades and avgrages are printed out into the terminal, the next printGrades(std::string typeName) where it prints out just the grades for a given catigory, saveGrades() where all of the elimnts from the grade vector are saved back into the starting file. There are two versons of the frist being findAvg() finds the total avgrage for the course grade. and then the second being findAvg(std::string typeName) finds the avg for the given catigory name. A gernal command not used by the command isfindWorth(std::string typeName) finds the max grade for a given catigory. The getGrades(std::string gradeName,int loc) method gets the grade at the given  location.  setGrades(std::string gradeName,int loc,double grade) method changes the current grade at the given location to a new grade. Lastly void addGrade(std::string gradeName,double grade) method adds a new grade to the end of the given catigory. 
+	
+	Commands to interact wit the program.
  
-
-	Commands: 
-
 		help displayes general help with no addition args
 			avalble args {help, new, getGrade, changeGrade,  addGrade, removeGrade, close}
 			ex (help getGrades) would output how to use the getGrades command
