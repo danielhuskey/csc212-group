@@ -119,7 +119,7 @@ int main(int argc, char* argv[]){
     std::vector<std::vector<double>> tempVector ={{20.5,20,20,20,20,20,20,20,20,20},{50,50,50,50},{150,350},{100}};
     std::vector<std::string> nameVector={"Labs","Assignments","Projects","Exams"};
     gradeBook * test;
-    test = new gradeBook(tempVector,nameVector,file_name);
+    test = new gradeBook(file_name);
 
     //gradeBook test2(file_name);
     int run = handleCommands("help",test);
@@ -131,8 +131,8 @@ int main(int argc, char* argv[]){
 
         //std:getline(std::cin, inputCommand);:
         std::cin>>inputCommand;
+        run =handleCommands(inputCommand,test);
         
-         run =handleCommands(inputCommand,test);
-        
-    }    
+    }
+    
 }
