@@ -1,11 +1,15 @@
 #include <vector>
 #include <string>
 
+//class declaration
 class gradeBook{
     private:
+        //will hold all the grades
         std::vector<std::vector<double>> gradeVector;
+        //will hold all the things to get graded on
         std::vector<std::string> nameVector={"Labs","Assignments","Projects","Exams"};
         char * fName;
+        //weight of all 4 elements for nameVector
         const double WORTHS[4] ={200,200,500,100};
      
         
