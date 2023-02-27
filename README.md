@@ -88,7 +88,7 @@ Planning:
 
 }
 
-	Flow Chart IMG
+	
 
 
 Compilation Command:
@@ -104,7 +104,22 @@ Runtime Instructions:
 
 
 Samples:
+Example Of Giving an invalid Command and getting help to finally getGrade Labs 2 grade
+![image](https://user-images.githubusercontent.com/79720949/221473081-832d9aec-7ee0-4375-8d76-bf29460ddf96.png)
+
+Example Of changing the grade of Assigment 1 to 45
+![image](https://user-images.githubusercontent.com/79720949/221474473-84953618-97b4-41e1-b647-c74424e43a5b.png)
+Changing the the file from 
+![image](https://user-images.githubusercontent.com/79720949/221474542-9d9bf053-63df-43ed-b33b-565194cd6dae.png)
+TO
+![image](https://user-images.githubusercontent.com/79720949/221474670-1e4fb71e-59eb-4e1a-839b-e934474e8875.png)
 
 
+Example for getting the total grades in a catigory
+![image](https://user-images.githubusercontent.com/79720949/221475534-3bb2977d-1f19-4b45-ac11-61347784a868.png)
+![image](https://user-images.githubusercontent.com/79720949/221475614-d99915c5-cc9c-4919-9f56-b21559afbb08.png)
+
+Example For getting a singal grade
+![image](https://user-images.githubusercontent.com/79720949/221475723-e398d369-eb65-4fe9-aeaf-8bc7220d05b0.png)
 
 	
