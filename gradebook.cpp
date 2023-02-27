@@ -132,7 +132,7 @@ double gradeBook::findAvg(){
 } 
 //finds the avg of all grades 
 
-
+//when it gets handled in main it does "that number / category worth" 
 double gradeBook::findAvg(std::string typeName){
     int fristVal;
     double total=0;
